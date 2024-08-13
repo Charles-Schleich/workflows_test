@@ -1,0 +1,35 @@
+name: Test Manual Run2
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Client version'
+        required: true
+        default: 'latest'
+
+jobs:
+  publish-network-client:
+    runs-on: ["self-hosted", "ubuntu-22.04"]
+    container:
+        image: ubuntu:latest
+        options: --rm
+    steps:
+
+      - name: Install dependencies
+        env:
+            DEBIAN_FRONTEND: noninteractive
+        run: |
+          apt update
+          apt install -y git unzip build-essential jq protobuf-compiler zip
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: git config
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: echo
+        run: |
+          echo "Test2"
