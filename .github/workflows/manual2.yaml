@@ -15,21 +15,9 @@ jobs:
         options: --rm
     steps:
 
-      - name: Install dependencies
-        env:
-            DEBIAN_FRONTEND: noninteractive
-        run: |
-          apt update
-          apt install -y git unzip build-essential jq protobuf-compiler zip
-
       - name: Checkout Repository
         uses: actions/checkout@v4
-        
-      - name: git config
-        run: |
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
       - name: echo
         run: |
-          echo "Test2"
+          echo "Test 3 from other branch"
