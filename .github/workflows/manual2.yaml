@@ -1,4 +1,4 @@
-name: Test Manual Run
+name: Test Manual Run2
 on:
   workflow_dispatch:
     inputs:
