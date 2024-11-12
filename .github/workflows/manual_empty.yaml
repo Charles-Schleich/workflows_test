@@ -4,7 +4,7 @@ on:
 
 jobs:
   publish-network-client:
-    runs-on: ["self-hosted", "ubuntu-22.04"]
+    runs-on: ["ubuntu-22.04"]
     container:
         image: ubuntu:latest
         options: --rm
