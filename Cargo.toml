@@ -1,0 +1,4 @@
+[package]
+name = "zenoh-python"
+version = "1.0.0-dev"
+authors = []
