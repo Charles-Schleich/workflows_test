@@ -11,7 +11,7 @@ on:
       version:
         type: string
         description: Release number
-        required: false
+        required: true
       branch:
         type: string
         description: Release branch

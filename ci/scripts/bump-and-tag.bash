@@ -32,7 +32,10 @@ git commit Cargo.toml ./plugin-library/Cargo.toml -m "chore: Bump version to $ve
 # Bump package.json version
 JQ=".version=\"$version\""
 local package_tmp=$(mktemp)
-cat "./ts_project/package.json" | jq "$JQ"  > "$package_tmp"
+local package_json = "./ts_project/package.json"
+cat ${package_json} | jq "$JQ"  > "$package_tmp"
+mv "package_tmp" ${package_json}
+
 
 if [[ ${live_run} ]]; then
   git tag --force "$version" -m "v$version"
