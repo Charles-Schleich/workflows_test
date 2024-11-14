@@ -15,6 +15,8 @@ export GIT_AUTHOR_EMAIL=$git_user_email
 export GIT_COMMITTER_NAME=$git_user_name
 export GIT_COMMITTER_EMAIL=$git_user_email
 
+apt install curl -y
+
 curl https://sh.rustup.rs -sSf | sh
 
 cargo +stable install toml-cli
