@@ -41,9 +41,8 @@ jobs:
       - name: Bump and tag project
         run: bash ci/scripts/bump-and-tag.bash
         env:
-          VERSION: ${{ inputs.version }}
           LIVE_RUN: ${{ inputs.live_run }}
-          BUMP_DEPS_BRANCH: ${{ inputs.zenoh-version && format('release/{0}', inputs.zenoh-version) || '' }}
+          VERSION: ${{ inputs.version }}
           GIT_USER_NAME: charles-schleich-bot
           GIT_USER_EMAIL: charles-schleich-bot@users.noreply.github.com
 
@@ -51,6 +50,6 @@ jobs:
         run: |
           echo "Test"
           echo ${{ steps.create-release-branch.outputs.version }}
-          echo ${{ inputs.zenoh-version }}
-          echo ${{ inputs.zenoh-version && 'zenoh.*' || '' }}
-          echo ${{ inputs.zenoh-version && format('release/{0}', inputs.zenoh-version) || '' }}
+          echo ${{ inputs.live-run }}
+          echo ${{ inputs.version && 'zenoh.*' || '' }}
+          echo ${{ inputs.branch && format('release/{0}', inputs.zenoh-version) || '' }}
