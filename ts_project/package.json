@@ -1,6 +1,6 @@
 {
   "name": "@eclipse-zenoh/zenoh-ts",
-  "version": "1.2.2",
+  "version": "0.0.2",
   "devDependencies": {
     "typescript": "^5.6.3"
   }
