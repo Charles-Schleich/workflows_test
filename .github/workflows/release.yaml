@@ -20,10 +20,7 @@ on:
 
 jobs:
   release-library:
-    runs-on: ["ubuntu-22.04"]
-    container:
-        image: ubuntu:latest
-        options: --rm
+    runs-on: ubuntu-latest
     steps:
       # - id: create-release-branch
       #   uses: eclipse-zenoh/ci/create-release-branch@main
