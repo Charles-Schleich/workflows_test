@@ -35,16 +35,13 @@ package_json="./ts_project/package.json"
 cat ${package_json} | jq "$JQ"  > "$package_tmp"
 mv ${package_tmp} ${package_json}
 
-cat "./ts_project/package.json"
-git add -u
-git diff 
-# git commit Cargo.toml ./plugin-library/Cargo.toml -m "chore: Bump version to $version"
+git commit Cargo.toml ./plugin-library/Cargo.toml ${package_json} -m "chore: Bump version to $version"
 
-# if [[ ${live_run} ]]; then
-#   git tag --force "$version" -m "v$version"
-# fi
+if [[ ${live_run} ]]; then
+  git tag --force "$version" -m "v$version"
+fi
 
-# git log -10
-# git show-ref --tags
-# git push --force origin
-# git push --force origin "$version"
+git log -10
+git show-ref --tags
+git push --force origin
+git push --force origin "$version"
