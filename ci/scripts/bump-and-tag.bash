@@ -27,21 +27,24 @@ function toml_set_in_place() {
 # Bump Cargo version of library and top level toml
 toml_set_in_place ./plugin-library/Cargo.toml "package.version" "$version"
 toml_set_in_place Cargo.toml "package.version" "$version"
-git commit Cargo.toml ./plugin-library/Cargo.toml -m "chore: Bump version to $version"
 
 # Bump package.json version
 JQ=".version=\"$version\""
-local package_tmp=$(mktemp)
-local package_json = "./ts_project/package.json"
+package_tmp=$(mktemp)
+package_json="./ts_project/package.json"
 cat ${package_json} | jq "$JQ"  > "$package_tmp"
-mv "package_tmp" ${package_json}
+mv ${package_tmp} ${package_json}
 
+cat "./ts_project/package.json"
+git add -u
+git diff 
+# git commit Cargo.toml ./plugin-library/Cargo.toml -m "chore: Bump version to $version"
 
-if [[ ${live_run} ]]; then
-  git tag --force "$version" -m "v$version"
-fi
+# if [[ ${live_run} ]]; then
+#   git tag --force "$version" -m "v$version"
+# fi
 
-git log -10
-git show-ref --tags
-git push --force origin
-git push --force origin "$version"
+# git log -10
+# git show-ref --tags
+# git push --force origin
+# git push --force origin "$version"
