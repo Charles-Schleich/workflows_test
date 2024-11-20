@@ -6,18 +6,18 @@ on:
   #     - '[0-9]+.*'
   workflow_dispatch:
     inputs:
-    live-run:
-      type: boolean
-      description: Live-run
-      required: false
-    version:
-      type: string
-      description: Release number
-      required: true
-    branch:
-      type: string
-      description: Release branch
-      required: false
+      live-run:
+        type: boolean
+        description: Live-run
+        required: false
+      version:
+        type: string
+        description: Release number
+        required: true
+      branch:
+        type: string
+        description: Release branch
+        required: false
 
 defaults:
   run:
