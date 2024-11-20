@@ -56,8 +56,6 @@ jobs:
           dir: ./ts_project
 
       - name: Transpile Code
-        with: 
-          dir: ./ts_project
         run: yarn run build
 
       - name: Publish
