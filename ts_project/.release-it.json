@@ -1,0 +1,20 @@
+{
+    "github": {
+        "release": false
+    },
+    "increment": false,
+    "git": {
+        "requireCleanWorkingDir": false,
+        "commit": false,
+        "tag": false,
+        "push": false
+    },
+    "npm": {
+        "contents": [
+            "dist"
+        ]
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
+      }
+}
