@@ -14,10 +14,6 @@ on:
         type: string
         description: Release number
         required: true
-      branch:
-        type: string
-        description: Release branch
-        required: false
 
 defaults:
   run:
