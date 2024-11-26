@@ -35,7 +35,7 @@ jobs:
       - name: Bump and tag project
         run: bash ci/scripts/bump-and-tag.bash
         env:
-          LIVE_RUN: ${{ inputs.live_run }}
+          LIVE_RUN: ${{ inputs.live_run | false }}
           VERSION: ${{ inputs.version }}
           GIT_USER_NAME: charles-schleich-bot
           GIT_USER_EMAIL: charles-schleich-bot@users.noreply.github.com

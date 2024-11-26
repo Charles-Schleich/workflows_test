@@ -15,19 +15,17 @@ export GIT_AUTHOR_EMAIL=$git_user_email
 export GIT_COMMITTER_NAME=$git_user_name
 export GIT_COMMITTER_EMAIL=$git_user_email
 
-cargo +stable install toml-cli
+# cargo +stable install toml-cli
 
-# NOTE(fuzzypixelz): toml-cli doesn't yet support in-place modification
-# See: https://github.com/gnprice/toml-cli?tab=readme-ov-file#writing-ish-toml-set
-function toml_set_in_place() {
-  local tmp=$(mktemp)
-  toml set "$1" "$2" "$3" > "$tmp"
-  mv "$tmp" "$1"
-}
+# function toml_set_in_place() {
+#   local tmp=$(mktemp)
+#   toml set "$1" "$2" "$3" > "$tmp"
+#   mv "$tmp" "$1"
+# }
 
-# Bump Cargo version of library and top level toml
-toml_set_in_place ./plugin-library/Cargo.toml "package.version" "$version"
-toml_set_in_place Cargo.toml "package.version" "$version"
+# # Bump Cargo version of library and top level toml
+# toml_set_in_place ./plugin-library/Cargo.toml "package.version" "$version"
+# toml_set_in_place Cargo.toml "package.version" "$version"
 
 # Bump package.json version
 JQ=".version=\"$version\""
