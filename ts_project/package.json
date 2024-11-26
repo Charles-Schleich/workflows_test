@@ -8,5 +8,8 @@
   },
   "scripts": {
     "release": "release-it"
+  },
+  "dependencies": {
+    "@eclipse-zenoh/zenoh-ts": "^1.0.3"
   }
 }
