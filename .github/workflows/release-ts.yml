@@ -40,7 +40,7 @@ jobs:
           live-run: ${{ inputs.live-run || false }}
           version: ${{ inputs.version }}
           branch: ${{ inputs.branch }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.BOT_TOKEN_WORKFLOW }}
 
       - name: Checkout
         uses: actions/checkout@v4
