@@ -103,6 +103,7 @@ jobs:
             ts_project/package.json
             ts_project/LICENSE
             ts_project/README.md
+            ci/.npmrc
 
       - name: Cleanup
         working-directory: ./ts_project
@@ -116,14 +117,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [tag,build-ts]
     steps:
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          registry-url: 'https://registry.npmjs.org/'
-          node-version: 20
-          cache: 'npm'
-
       - name: Download zenoh-ts-build
         uses: actions/download-artifact@v4
         with:
@@ -131,12 +124,12 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -R        
- 
+
       - name: Publish
         id: publish
         shell: bash
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           LIVE_RUN: ${{ inputs.live_run || false }}
         run: |
           readonly live_run=${LIVE_RUN:-false}
