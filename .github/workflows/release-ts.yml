@@ -21,7 +21,7 @@ defaults:
 
 jobs:
   tag:
-    name: Publish Typescript Project
+    name: Branch and Tag Release
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
@@ -123,7 +123,7 @@ jobs:
           name: zenoh-ts-build
 
       - name: Display structure of downloaded files
-        run: ls -la
+        run: ls -laR
 
       - name: Publish
         id: publish
