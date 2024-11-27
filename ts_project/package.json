@@ -1,5 +1,6 @@
 {
   "name": "@charles-schleich/ts_project",
+  "license":"Apache-2.0",
   "version": "0.0.5",
   "devDependencies": {
     "dotenv-cli": "^7.4.3",
@@ -8,7 +9,8 @@
   },
   "scripts": {
     "release": "release-it",
-    "build": "npx tsc"
+    "build": "npx tsc",
+    "clean": "rm -rf node_modules dist"
   },
   "dependencies": {
     "@eclipse-zenoh/zenoh-ts": "^1.0.3"
