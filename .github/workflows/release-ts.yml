@@ -123,7 +123,7 @@ jobs:
           name: zenoh-ts-build
 
       - name: Display structure of downloaded files
-        run: ls -R        
+        run: ls -la
 
       - name: Publish
         id: publish
@@ -132,6 +132,7 @@ jobs:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           LIVE_RUN: ${{ inputs.live_run || false }}
         run: |
+          ls -la
           readonly live_run=${LIVE_RUN:-false}
           if [[ ${live_run} ]]; then
               npm publish --provenance --access public
