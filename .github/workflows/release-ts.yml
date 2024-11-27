@@ -92,7 +92,6 @@ jobs:
       - name: Transpile Code
         working-directory: ./ts_project
         run: |
-          cd 
           yarn run build
 
       - name: Cleanup
