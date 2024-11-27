@@ -122,7 +122,7 @@ jobs:
           name: zenoh-ts-build
 
       - name: Display structure of downloaded files
-      run: ls -R        
+        run: ls -R        
   
 
       # - name: Publish
