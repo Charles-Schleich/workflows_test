@@ -60,18 +60,19 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-  build-standalone:
-    name: Build executables and libraries
-    needs: tag
-    uses: eclipse-zenoh/ci/.github/workflows/build-crates-standalone.yml@main
-    with:
-      repo: ${{ github.repository }}
-      version: ${{ needs.tag.outputs.version }}
-      branch: ${{ needs.tag.outputs.branch }}
-      artifact-patterns: |
-        ^libplugin-library(2)?\.(dylib|so)$
-        ^plugin-library(2)?\.dll$
-    secrets: inherit
+  # Dont worry about building the rust Plugin for now
+  # build-standalone:
+  #   name: Build executables and libraries
+  #   needs: tag
+  #   uses: eclipse-zenoh/ci/.github/workflows/build-crates-standalone.yml@main
+  #   with:
+  #     repo: ${{ github.repository }}
+  #     version: ${{ needs.tag.outputs.version }}
+  #     branch: ${{ needs.tag.outputs.branch }}
+  #     artifact-patterns: |
+  #       ^libplugin-library(2)?\.(dylib|so)$
+  #       ^plugin-library(2)?\.dll$
+  #   secrets: inherit
 
   build-ts:
     runs-on: ubuntu-latest
