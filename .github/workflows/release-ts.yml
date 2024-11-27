@@ -98,7 +98,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zenoh-ts-build
-          include-hidden-files: false
+          include-hidden-files: true
           path: |
             ts_project/dist/
             ts_project/package.json
