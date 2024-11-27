@@ -118,10 +118,10 @@ jobs:
     steps:
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           registry-url: 'https://registry.npmjs.org/'
-          node-version: 20.09
+          node-version: 20
           cache: 'npm'
 
       - name: Download zenoh-ts-build
