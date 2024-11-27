@@ -74,6 +74,7 @@ jobs:
     secrets: inherit
 
   build-ts:
+    runs-on: ubuntu-latest
     steps:
       - name: Run install
         uses: borales/actions-yarn@v4
