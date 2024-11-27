@@ -83,15 +83,26 @@ jobs:
         with:
           ref: ${{ needs.tag.outputs.branch }}
 
-      - name: Run install
+      - name: Install Dependencies
         uses: borales/actions-yarn@v4
         with:
           cmd: install
           dir: ./ts_project
 
       - name: Transpile Code
-        run: yarn run build
-        
+        working-directory: ./ts_project
+        run: |
+          cd 
+          yarn run build
+
+      - name: Cleanup
+        working-directory: ./ts_project
+        if: always()
+        run: |
+          rm -rf node_modules
+          rm -rf dist
+          rm -rf package-lock.json
+
       # - name: Publish
       #   id: publish
       #   shell: bash
@@ -101,10 +112,3 @@ jobs:
       #   run: |
       #     npm install
       #     npm publish --provenance --access public
-
-      - name: Cleanup
-        if: always()
-        run: |
-          rm -rf node_modules
-          rm -rf dist
-          rm -rf package-lock.json
