@@ -133,7 +133,8 @@ jobs:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           LIVE_RUN: ${{ inputs.live_run || false }}
         run: |
-          ls -la
+          cp ci/.npmrc ts_project/.npmrc
+          cd ts_project
           readonly live_run=${LIVE_RUN:-false}
           if [[ ${live_run} ]]; then
               npm publish --provenance --access public
