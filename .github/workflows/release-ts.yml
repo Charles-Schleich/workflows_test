@@ -135,6 +135,7 @@ jobs:
         run: |
           cp ci/.npmrc ts_project/.npmrc
           cd ts_project
+          ls -lah
           readonly live_run=${LIVE_RUN:-false}
           if [[ ${live_run} ]]; then
               npm publish --provenance --access public
