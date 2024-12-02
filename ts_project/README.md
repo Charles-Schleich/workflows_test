@@ -1,1 +1,1 @@
-Test README
+Project to practice releasing npm projects into the wild

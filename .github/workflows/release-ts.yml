@@ -104,7 +104,6 @@ jobs:
             ts_project/package.json
             ts_project/LICENSE
             ts_project/README.md
-            ci/.npmrc
 
       - name: Cleanup
         working-directory: ./ts_project
@@ -133,12 +132,16 @@ jobs:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           LIVE_RUN: ${{ inputs.live_run || false }}
         run: |
-          cp ci/.npmrc ts_project/.npmrc
-          cd ts_project
-          ls -lah
           readonly live_run=${LIVE_RUN:-false}
           if [[ ${live_run} ]]; then
               npm publish --provenance --access public
           else
               npm publish --dry-run
           fi
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf ts_project
+          rm -rf ci
+
