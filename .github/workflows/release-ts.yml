@@ -10,6 +10,7 @@ on:
         type: boolean
         description: Live-run
         required: false
+        default: false
       version:
         type: string
         description: Release number
@@ -134,17 +135,10 @@ jobs:
         run: |
           readonly live_run=${LIVE_RUN:-false}
           npm config set //registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}
-          if [[ ${live_run} ]]; then
+          if [ ${live_run}=true ]; then
               echo "Releasing"
               npm publish --access public
           else
               echo "Dry Run"
               npm publish --dry-run
           fi
-
-      - name: Cleanup
-        if: always()
-        run: |
-          rm -rf ts_project
-          rm -rf ci
-
