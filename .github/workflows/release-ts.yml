@@ -130,7 +130,7 @@ jobs:
         shell: bash
         env:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
-          LIVE_RUN: ${{ inputs.live_run || false }}
+          LIVE_RUN: ${{ inputs.live-run || false }}
         run: |
           readonly live_run=${LIVE_RUN:-false}
           npm config set //registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}
