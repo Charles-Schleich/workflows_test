@@ -1,8 +1,8 @@
 {
   "name": "@charles-schleich/ts_project",
   "author": "charles-schleich",
-  "license":"Apache-2.0",
-  "version": "0.0.12",
+  "license": "Apache-2.0",
+  "version": "0.0.14",
   "devDependencies": {
     "dotenv-cli": "^7.4.3",
     "typescript": "^5.6.3"
