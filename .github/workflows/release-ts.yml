@@ -133,6 +133,7 @@ jobs:
           LIVE_RUN: ${{ inputs.live_run || false }}
         run: |
           readonly live_run=${LIVE_RUN:-false}
+          npm config set //registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}
           if [[ ${live_run} ]]; then
               npm publish --provenance --access public
           else
