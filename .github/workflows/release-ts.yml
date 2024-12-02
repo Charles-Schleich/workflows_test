@@ -136,7 +136,7 @@ jobs:
           readonly live_run=${LIVE_RUN:-false}
           echo $LIVE_RUN
           npm config set //registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}
-          if [ ${live_run}=true ]; then
+          if [ ${live_run} = true ]; then
               echo "Releasing"
               npm publish --access public
           else
